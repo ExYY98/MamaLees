@@ -7,7 +7,6 @@ import Router from 'next/router';
 import style from './page.module.css'
 
 const NavBar = ({setActive}) => {
-
   return (
     <div
       style={{
@@ -19,7 +18,6 @@ const NavBar = ({setActive}) => {
       <button className={style.navButton} onClick={() => {setActive('home')}}>Home</button>
       <button className={style.navButton} onClick={() => {setActive('flavors')}}>Flavors</button>
       <button className={style.navButton} onClick={() => {setActive('contactUs')}}>Contact Us</button>
-
     </div>
   );
 };

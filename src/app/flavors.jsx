@@ -6,40 +6,70 @@ import flavorData from '/public/data/data.js';
 import Image from 'next/image';
 import axios from 'axios';
 import Flavor from './Flavor';
+import Search from './Search';
 
+const Flavors = ({data, searchTerm}) => {
+  // let [list, setList] = useState([]);
 
-const Flavors = () => {
-  const [data, setData ] = useState([]);
-  useEffect(() => {
-    axios.get('api/getData')
-    .then((results) => {
-      console.log('HERE IT IS', results.data.data);
-      setData(results.data.data);
+  // useEffect(() => {
+  //   setList([...data]);
+  // }, [searchTerm])
+  // console.log(list);
+  // let list = [...data]
+  let list = [];
+  if (searchTerm !== '') {
+    let tempList = data.filter((item) => {
+      if (item.Name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return item;
+      }
     })
-    .catch((error) => {
-      console.log("ERROR!!!", error)
-    })
-  }, [])
+    console.log(tempList, 'templist')
+    list = tempList;
+    console.log('list', list)
+  }
+  if(list.length === 0) {
+    return (
+      <div className={styles.flavors}>
+        <h1>Flavors</h1>
+          <div>
+            {data?.map((item, i) => {
+              return (
+                <div className={styles.flavorCard}>
+                  <Flavor key={item.ID + i} item={item} searchTerm={searchTerm}/>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+    );
+  }
+  if(list.length > 0) {
+    return (
+      <div className={styles.flavors}>
+        <h1>Flavors</h1>
+          <div>
+            {list?.map((item, i) => {
+              return (
+                <div className={styles.flavorCard}>
+                  <Flavor key={item.ID + i} item={item} searchTerm={searchTerm}/>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+    );
+  }
 
-  return (
-    <div className={styles.flavors}>
-      <h1>Flavors</h1>
-      <div>
-        {data?.map((item, i) => {
-          let imageSrc = `/data/${item.ImageName}`
-          return (
-            <Flavor key={item.ID + i} item={item}/>
-            // <div className={styles.flavorCard} key={item.ID + i}>
-            //   <div>
-            //   <h2>{item.Name}</h2>
-            //     <Image src={imageSrc} alt="photo" width={300} height={300}/>
-            //   </div>
-            // </div>
-          )
-        })}
-      </div>
-    </div>
-  );
 };
 
 export default Flavors;
+
+  // if (searchTerm !== '' && searchTerm) {
+  //   let searchedList = data.filter((item) => {
+  //     if (item.Name.toLowerCase().includes(searchTerm.toLowerCase())) {
+  //       return item;
+  //     }
+  //   })
+  //   console.log('temp', searchedList)
+  //   setList([...searchedList])
+  // }
