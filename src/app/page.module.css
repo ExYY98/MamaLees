@@ -96,7 +96,7 @@
 }
 
 .flavors {
-  padding: 5rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -185,5 +185,6 @@
 }
 
 .homePage {
-  background-color: #ffd2cc;
+  background: #ffd2cc;
+  padding: 25px;
 }

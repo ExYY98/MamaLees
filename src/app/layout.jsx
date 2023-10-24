@@ -1,4 +1,4 @@
-// import './globals.css';
+import './globals.css';
 import { Playfair_Display as Playfair } from 'next/font/google'
 
 const inter = Playfair({ subsets: ['latin'] })

@@ -11,7 +11,7 @@ import axios from 'axios'
 import style from './page.module.css'
 
 export default function Page() {
-  const [active, setActive] = useState('flavors');
+  const [active, setActive] = useState('home');
   const [data, setData] = useState([]);
   let [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {

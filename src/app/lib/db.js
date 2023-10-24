@@ -24,7 +24,6 @@ export default async function executeQuery({query, values}) {
     console.log('connected here!');
     const results = await db.query(`SELECT  * FROM Flavors`)
     await db.end();
-    console.log(results);
     return results;
   } catch(error) {
     return error
