@@ -8,8 +8,11 @@ import style from './page.module.css'
 
 const Home = () => {
   return (
+    <div>
+
     <div className={style.center}>
       <Image src={Logo} alt="Mama Lee's Creamery" width={400}/>
+    </div>
     </div>
   );
 };

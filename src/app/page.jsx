@@ -22,7 +22,7 @@ export default function Page() {
     .catch((error) => {
       console.log("ERROR!!!", error)
     })
-  }, [active]);
+  }, [active, searchTerm]);
 
   return (
     <div className={style.homePage}>
@@ -37,8 +37,8 @@ export default function Page() {
         {active === 'flavors' && (
           <div>
             <div className={styles.searchBar}>
-              <form className={styles.test}>
-                <input type='text' placeholder='search' value={searchTerm} onChange={(event) => {
+              <form onSubmit={()=> {return false}}>
+                <input type='text' placeholder='search the flavors!' value={searchTerm} onChange={(event) => {
                   console.log(searchTerm)
                   setSearchTerm(event.target.value)}}></input>
               </form>

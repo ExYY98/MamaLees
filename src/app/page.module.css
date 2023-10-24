@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.description {
+/* .description {
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
@@ -31,7 +31,7 @@
   padding: 1rem;
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
-}
+} */
 
 .code {
   font-weight: 700;
@@ -39,8 +39,8 @@
 }
 
 .image {
-  width: 300;
-  height: 300;
+  width: 250;
+  height: 250;
 }
 
 .grid {
@@ -70,28 +70,31 @@
   color: #e50a0a;
   text-decoration: underline;
 }
-.test:focus {
-  outline: none;
-}
 
 .searchBar {
   display: flex;
-  border-color: transparent;
+  border-color:#e50a0a;
   justify-content: flex-end;
 }
 
-.searchBar:focus {
-  outline:none !important;
+.searchBar input::placeholder {
+  font-weight: 600;
+  color:rgb(174, 0, 0);
+  opacity:0.5;
 }
 
 .searchBar input {
   background-color: rgba(182, 0, 0, 0.094);
-  border-color: #fefefe00;
+  border-color: #ff0000;
+  border-style:double;
+  border-radius: 0.3rem;
   padding: 0.2rem;
   text-align: center;
+  font-size: large;
   height: 30px;
   width: 260px;
 }
+
 .flavors {
   padding: 5rem;
   display: flex;
@@ -107,9 +110,10 @@
   justify-content: center;
   border-radius: 5%;
   padding: 1rem;
+  width:300px;
 }
 .flavorCard:hover {
-  background-color: #f0040430;
+  background-color: #f004041a;
 }
 
 .card {
@@ -120,7 +124,7 @@
   transition: background 200ms, border 200ms;
 }
 
-.card span {
+/* .card span {
   display: inline-block;
   transition: transform 200ms;
 }
@@ -136,7 +140,7 @@
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
-}
+} */
 
 .center {
   display: flex;
@@ -157,10 +161,22 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  width: 100%;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
 
 }
-.descriptionAndFlavors {
-  display: inline;
+
+.description p {
+  position: relative;
+  margin: 0;
+  padding: 1rem;
 }
 
 .navBar {

@@ -8,19 +8,20 @@ import axios from 'axios';
 const Flavor = ({item}) => {
   let [clicked, setClicked] = useState(false);
   let change = function() {
-    console.log('clicked')
     setClicked(!clicked);
+    var elmnt = document.getElementById('content');
+    elmnt.scrollIntoView({behavior: 'smooth', block:'start'});
   }
   let imageSrc = `/data/${item.ImageName}`
   return (
     <div className={styles.cardContainer} onClick={()=> {change()}}>
       <div>
-        <h2>{item.Name}</h2>
-        <Image src={imageSrc} alt="photo" width={300} height={300}/>
+        <h3>{item.Name}</h3>
+        <Image src={imageSrc} alt="photo" width={250} height={250}/>
         {clicked && (
-          <div className={styles.descriptionAndFlavors}>
-            <div>{item.Description}</div>
-            <div>{item.Ingredients}</div>
+          <div className={styles.description}>
+            <p>{item.Description}</p>
+            <b>{item.Ingredients}</b>
           </div>
         )}
       </div>
