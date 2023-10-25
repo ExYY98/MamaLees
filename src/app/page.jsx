@@ -22,12 +22,19 @@ export default function Page() {
     .catch((error) => {
       console.log("ERROR!!!", error)
     })
-  }, [active, searchTerm]);
+  }, [active]);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <div className={style.homePage}>
       <div className={style.navBar}>
-        <Image src={MiniLogo} alt="mini logo" className={style.logo}/>
+        <div onClick={() => {setActive('home')}}>
+        <Image src={MiniLogo} alt="mini logo" className={styles.logo}/>
+        </div>
         <NavBar setActive={setActive}/>
       </div>
       <div>
@@ -37,9 +44,8 @@ export default function Page() {
         {active === 'flavors' && (
           <div>
             <div className={styles.searchBar}>
-              <form onSubmit={()=> {return false}}>
-                <input type='text' placeholder='search the flavors!' value={searchTerm} onChange={(event) => {
-                  console.log(searchTerm)
+              <form onSubmit={handleSearch}>
+                <input type='text' placeholder='search' value={searchTerm} onChange={(event) => {
                   setSearchTerm(event.target.value)}}></input>
               </form>
             </div>

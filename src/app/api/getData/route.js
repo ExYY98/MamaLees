@@ -3,7 +3,6 @@ import executeQuery from '../../lib/db.js';
 import {NextResponse} from 'next/server';
 
 export async function GET(request) {
-  console.log('here in the get');
   const results = await executeQuery({
     query: `SELECT * FROM Flavors;`,
     values: []

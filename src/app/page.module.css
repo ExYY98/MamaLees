@@ -78,13 +78,13 @@
 }
 
 .searchBar input::placeholder {
-  font-weight: 600;
-  color:rgb(174, 0, 0);
-  opacity:0.5;
+  font-weight: 500;
+  color:rgb(176, 6, 6);
+  opacity:1;
 }
 
 .searchBar input {
-  background-color: rgba(182, 0, 0, 0.094);
+  background-color: rgb(255, 255, 255);
   border-color: #ff0000;
   border-style:double;
   border-radius: 0.3rem;
@@ -153,9 +153,13 @@
 .logo {
   display:flex;
   justify-content: left;
-  display: inline-block;
-  width: 8%;
-  height: 8%;
+  width: 100px;
+  height: 100%;
+}
+
+.logo :hover {
+  width: 120px;
+  height:100%;
 }
 
 .cardContainer {
@@ -170,7 +174,6 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-
 }
 
 .description p {

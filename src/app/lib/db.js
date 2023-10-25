@@ -21,7 +21,6 @@ const db = mysql({
 export default async function executeQuery({query, values}) {
   db.connect();
   try {
-    console.log('connected here!');
     const results = await db.query(`SELECT  * FROM Flavors`)
     await db.end();
     return results;

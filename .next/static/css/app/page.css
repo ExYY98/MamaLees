@@ -81,13 +81,13 @@
 }
 
 .page_searchBar__ps3RX input::placeholder {
-  font-weight: 600;
-  color:rgb(174, 0, 0);
-  opacity:0.5;
+  font-weight: 500;
+  color:rgb(176, 6, 6);
+  opacity:1;
 }
 
 .page_searchBar__ps3RX input {
-  background-color: rgba(182, 0, 0, 0.094);
+  background-color: rgb(255, 255, 255);
   border-color: #ff0000;
   border-style:double;
   border-radius: 0.3rem;
@@ -156,9 +156,13 @@
 .page_logo__7fc9l {
   display:flex;
   justify-content: left;
-  display: inline-block;
-  width: 8%;
-  height: 8%;
+  width: 100px;
+  height: 100%;
+}
+
+.page_logo__7fc9l :hover {
+  width: 120px;
+  height:100%;
 }
 
 .page_cardContainer__uo0Ub {
@@ -173,7 +177,6 @@
   align-items: center;
   position: relative;
   flex-direction: column;
-
 }
 
 .page_description__86bsR p {
