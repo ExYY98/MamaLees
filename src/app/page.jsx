@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react'
 import Flavors from './flavors'
 import ContactUs from './contactUs'
 import Image from 'next/image'
-import MiniLogo from '/public/data/MiniLogo.png'
+import MiniLogo from '/public/data/Stamp.png'
 import axios from 'axios'
 import style from './page.module.css'
 
@@ -26,8 +26,9 @@ export default function Page() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    setSearchTerm(event.target.value);
+    setSearchTerm(searchTerm);
   };
+
 
   return (
     <div className={style.homePage}>

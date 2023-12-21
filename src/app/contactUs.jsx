@@ -4,9 +4,9 @@ import styles from './page.module.css'
 
 const ContactUs = () => {
   return (
-    <div>
-      Contact Us here!
-      Follow us here!
+    <div className={styles.description}>
+      Let's keep in contact!
+
     </div>
   );
 };

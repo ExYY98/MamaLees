@@ -10,9 +10,17 @@ const Search = (list, searchTerm) => {
   if (searchTerm === '') {
     return list;
   }
+  searchTerm = searchTerm.toLowerCase();
+  if (searchTerm === 'vegan'){
+    console.log('vegan');
+    let newList = list.map((item) => {
+      if (item.isVegan === 1) {
+        return item
+      }
+    })
+  }
   let newList = list.map((item) => {
-    console.log(item);
-    if (item.Name.toLowerCase().indexOf(searchTerm.toLowerCase())) {
+    if (item.Name.toLowerCase().indexOf(searchTerm)) {
       return item;
     }
   })
