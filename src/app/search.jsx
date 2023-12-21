@@ -5,26 +5,28 @@ import {useState, useEffect} from 'react'
 import Image from 'next/image';
 import axios from 'axios';
 
-const Search = (list, searchTerm) => {
-  console.log('LIST', list, searchTerm)
-  if (searchTerm === '') {
-    return list;
-  }
-  searchTerm = searchTerm.toLowerCase();
-  if (searchTerm === 'vegan'){
-    console.log('vegan');
-    let newList = list.map((item) => {
-      if (item.isVegan === 1) {
-        return item
-      }
-    })
-  }
-  let newList = list.map((item) => {
-    if (item.Name.toLowerCase().indexOf(searchTerm)) {
-      return item;
-    }
-  })
-  return newList;
+const Search = ({setSearchTerm, searchTerm, isVegan, setIsVegan, isTea, setIsTea}) => {
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchTerm(searchTerm);
+  };
+  return (
+    <div className={styles.searchBar}>
+    <label onChange={() => {setIsVegan(!isVegan)}}>
+      <input className={styles.input} type="checkbox" name="radio"/>
+      <span className={styles.span}>Vegan</span>
+    </label>
+{/*
+    <label onClick={setIsTea(!isTea)}>
+      <input className={styles.input} type="checkbox" name="radio"/>
+      <span className={styles.span}>Tea</span>
+    </label> */}
+      <form onSubmit={handleSearch}>
+        <input type='text' placeholder="search" value={searchTerm} onChange={(event) => {
+          setSearchTerm(event.target.value)}}></input>
+      </form>
+    </div>
+  )
 };
 
 export default Search;

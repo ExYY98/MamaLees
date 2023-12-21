@@ -8,7 +8,7 @@ import axios from 'axios';
 import Flavor from './Flavor';
 import Search from './Search';
 
-const Flavors = ({data, searchTerm}) => {
+const Flavors = ({data, searchTerm, isVegan}) => {
   // let [list, setList] = useState([]);
 
   // useEffect(() => {
@@ -16,17 +16,24 @@ const Flavors = ({data, searchTerm}) => {
   // }, [searchTerm])
   // console.log(list);
   // let list = [...data]
-  let list = [];
+  let list = data;
+  if (isVegan === true) {
+    let veganList = list.filter((item) => {
+      if (!!item.IsVegan === true) {
+        return item;
+      }
+    })
+    list = veganList
+  }
   if (searchTerm !== '') {
-    let tempList = data.filter((item) => {
+    let tempList = list.filter((item) => {
       if (item.Name.toLowerCase().includes(searchTerm.toLowerCase())) {
         return item;
       }
     })
-    console.log(tempList, 'templist')
     list = tempList;
-    console.log('list', list)
   }
+
   if(list.length === 0) {
     return (
       <div className={styles.flavors}>

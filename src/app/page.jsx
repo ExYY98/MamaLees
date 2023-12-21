@@ -9,11 +9,14 @@ import Image from 'next/image'
 import MiniLogo from '/public/data/Stamp.png'
 import axios from 'axios'
 import style from './page.module.css'
+import Search from './search'
 
 export default function Page() {
   const [active, setActive] = useState('home');
   const [data, setData] = useState([]);
   let [searchTerm, setSearchTerm] = useState('');
+  let [isVegan, setIsVegan] = useState(false);
+  let [isTea, setIsTea] = useState(false);
   useEffect(() => {
     axios.get('api/getData')
     .then((results) => {
@@ -23,13 +26,7 @@ export default function Page() {
       console.log("ERROR!!!", error)
     })
   }, [active]);
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    setSearchTerm(searchTerm);
-  };
-
-
+  console.log(isVegan);
   return (
     <div className={style.homePage}>
       <div className={style.navBar}>
@@ -44,14 +41,9 @@ export default function Page() {
         )}
         {active === 'flavors' && (
           <div>
-            <div className={styles.searchBar}>
-              <form onSubmit={handleSearch}>
-                <input type='text' placeholder='search' value={searchTerm} onChange={(event) => {
-                  setSearchTerm(event.target.value)}}></input>
-              </form>
-            </div>
+           <Search setSearchTerm={setSearchTerm} searchTerm={searchTerm} isVegan={isVegan} setIsVegan={setIsVegan} isTea={isTea} setIsTea={setIsTea}/>
             <div>
-              <Flavors data={data} searchTerm={searchTerm}/>
+              <Flavors data={data} searchTerm={searchTerm} isVegan={isVegan}/>
             </div>
           </div>
         )}
